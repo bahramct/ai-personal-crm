@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Contact {
+  id               String        @id @default(cuid())
+  name             String
+  relationshipType String
+  company          String?
+  title            String?
+  phone            String?
+  email            String?
+  notes            String?
+  importance       String        @default("MEDIUM")
+  lastContactAt    DateTime?
+  nextFollowUpAt   DateTime?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  interactions     Interaction[]
+  aiMessages       AIMessage[]
+}
+
+model Interaction {
+  id                     String    @id @default(cuid())
+  contactId              String
+  type                   String
+  summary                String
+  happenedAt             DateTime
+  nextFollowUpDate       DateTime?
+  createdAt              DateTime  @default(now())
+
+  // Interaction Intelligence fields
+  sentiment              String?
+  interactionTypeAI      String?
+  topics                 String?
+  relationshipSignal     String?
+  followUpNeeded         Boolean?
+  suggestedFollowUpDays  Int?
+
+  contact                Contact   @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([contactId])
+}
+
+model AIMessage {
+  id        String   @id @default(cuid())
+  contactId String
+  type      String
+  content   String
+  createdAt DateTime @default(now())
+
+  contact   Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([contactId])
+}
+
+model AppSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
