@@ -249,16 +249,16 @@ You can also use providers like:
 - Any OpenAI-compatible service
 ---
 
-### Database Models
+## Database Models
 The main Prisma models include:
 
-## Contact
+### Contact
 Stores information about people.
 
-## Interaction
+### Interaction
 Stores interactions between you and a contact.
 
-## AppSetting
+### AppSetting
 Stores AI configuration such as API keys and model settings.
 
 ---
