@@ -1,14 +1,7 @@
 # AI Personal CRM
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![CRM](https://img.shields.io/badge/CRM-Project-blue)
-![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?logo=laravel&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
-![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white)
 ![AI](https://img.shields.io/badge/AI-Powered-6f42c1)
+![description](assets/aipersonalcrm.png)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -89,20 +82,35 @@ The AI generates suggestions including:
 ## Tech Stack
 
 ### Frontend
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?logo=tailwindcss&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+
 - Next.js (App Router)  
 - React  
 - TypeScript  
 - Tailwind CSS  
 
 ### Backend
+![API Routes](https://img.shields.io/badge/API%20Routes-000000)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?logo=laravel&logoColor=white)
+
+- Laravel
 - Next.js Server Actions  
 - API Routes  
 
 ### Database
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white)
+
 - Prisma ORM  
 - SQLite  
 
 ### AI
+![OpenAI Compatible APIs](https://img.shields.io/badge/OpenAI%20Compatible%20APIs-412991?logo=openai&logoColor=white)
+![LLM Structured Output Parsing](https://img.shields.io/badge/LLM%20Structured%20Output%20Parsing-4A5568)
+
 - OpenAI-compatible APIs  
 - LLM structured output parsing  
 
@@ -295,7 +303,7 @@ Steps:
 
 ### License
 
-MIT License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
