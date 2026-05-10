@@ -1,36 +1,193 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+AI Personal CRM
+یک سیستم مدیریت ارتباطات شخصی (Personal CRM) مبتنی بر هوش مصنوعی که به شما کمک می‌کند ارتباطات خود با افراد مهم را بهتر مدیریت کنید، تعاملات را ثبت کنید و پیشنهادهای هوشمند برای پیگیری روابط دریافت کنید.
 
-## Getting Started
+این پروژه با استفاده از Next.js، Prisma و مدل‌های هوش مصنوعی سازگار با OpenAI ساخته شده و هدف آن تبدیل داده‌های ساده‌ی تعاملات به بینش‌های کاربردی برای مدیریت روابط انسانی است.
 
-First, run the development server:
+معرفی پروژه
+در بسیاری از مواقع حفظ ارتباط با افراد مهم مانند دوستان، همکاران، مشتریان یا سرمایه‌گذاران دشوار می‌شود.
 
-```bash
+این سیستم با استفاده از هوش مصنوعی تلاش می‌کند:
+
+تعاملات شما را تحلیل کند
+وضعیت رابطه را تشخیص دهد
+پیشنهادهایی برای ادامه ارتباط ارائه دهد
+زمان مناسب برای پیگیری را پیشنهاد دهد
+در واقع این پروژه ترکیبی از CRM شخصی + تحلیل تعاملات با هوش مصنوعی است.
+
+قابلیت‌های اصلی
+مدیریت مخاطبین
+ایجاد و مدیریت لیست مخاطبین
+مشاهده اطلاعات هر مخاطب
+مشاهده تاریخچه تعاملات
+ثبت تعاملات
+ثبت یادداشت یا تعامل با هر مخاطب
+ذخیره تاریخ و توضیحات تعامل
+تحلیل تعاملات با هوش مصنوعی
+سیستم می‌تواند متن تعامل شما را تحلیل کرده و اطلاعات زیر را استخراج کند:
+
+احساس کلی تعامل (مثبت / منفی / خنثی)
+نوع تعامل
+موضوعات مطرح شده
+سیگنال‌های رابطه
+نیاز به پیگیری
+پیشنهاد هوشمند برای ادامه ارتباط
+هوش مصنوعی با تحلیل داده‌های رابطه پیشنهادهایی ارائه می‌دهد مانند:
+
+اقدام پیشنهادی
+میزان فوریت ارتباط
+زمان پیشنهادی برای پیگیری
+دمای رابطه (Relationship Temperature)
+پشتیبانی از APIهای سازگار با OpenAI
+سیستم می‌تواند با هر API سازگار با OpenAI Chat Completions کار کند.
+
+تکنولوژی‌های استفاده شده
+Frontend
+Next.js (App Router)
+React
+TypeScript
+Tailwind CSS
+Backend
+Next.js Server Actions
+API Routes
+پایگاه داده
+Prisma ORM
+SQLite (برای توسعه)
+هوش مصنوعی
+OpenAI Compatible APIs
+Chat Completions API
+ابزارهای توسعه
+ESLint
+PostCSS
+Tailwind
+ساختار پروژه
+text
+ai-personal-crm
+│
+├── app
+│   ├── actions
+│   │   ├── analyzeInteraction.ts
+│   │   ├── generateSuggestion.ts
+│   │   └── interactions.ts
+│   │
+│   ├── api
+│   │   └── test-ai
+│   │
+│   ├── contacts
+│   │   └── [id]
+│   │       ├── page.tsx
+│   │       ├── InteractionForm.tsx
+│   │       └── AISuggestionSection.tsx
+│   │
+│   ├── dashboard
+│   │   └── page.tsx
+│   │
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+│
+├── lib
+│   ├── prisma.ts
+│   ├── openai.ts
+│   └── followUp.ts
+│
+├── prisma
+│   ├── schema.prisma
+│   ├── migrations
+│   └── seed.ts
+│
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+└── README.md
+نحوه کار سیستم
+فرآیند کلی سیستم به این صورت است:
+
+کاربر یک مخاطب ایجاد می‌کند.
+تعاملات با آن مخاطب ثبت می‌شود.
+متن تعامل به هوش مصنوعی ارسال می‌شود.
+AI تعامل را تحلیل می‌کند.
+نتیجه تحلیل در سیستم ذخیره می‌شود.
+سیستم پیشنهادهایی برای ادامه ارتباط تولید می‌کند.
+نصب و اجرای پروژه
+1. کلون کردن پروژه
+text
+git clone https://github.com/your-repo/ai-personal-crm.git
+cd ai-personal-crm
+2. نصب وابستگی‌ها
+text
+npm install
+یا
+
+text
+yarn install
+3. تنظیم پایگاه داده
+اجرای migration:
+
+text
+npx prisma migrate dev
+اجرای seed:
+
+text
+npx prisma db seed
+4. تنظیم API هوش مصنوعی
+در دیتابیس یا تنظیمات برنامه مقادیر زیر باید تنظیم شوند:
+
+API Key
+Base URL
+Model Name
+مثال:
+
+text
+Base URL: https://api.openai.com/v1
+Model: gpt-4
+یا هر API سازگار با OpenAI.
+
+5. اجرای پروژه
+text
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+و سپس:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+text
+http://localhost:3000
+مدل داده‌ها (Database)
+پروژه از Prisma ORM برای مدیریت پایگاه داده استفاده می‌کند.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+مدل‌های اصلی شامل:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Contact
+Interaction
+AppSetting
+این مدل‌ها اطلاعات مربوط به مخاطبین، تعاملات و تنظیمات AI را ذخیره می‌کنند.
 
-## Learn More
+کاربردهای پروژه
+این سیستم می‌تواند در موارد زیر استفاده شود:
 
-To learn more about Next.js, take a look at the following resources:
+مدیریت ارتباط با مشتریان
+مدیریت روابط حرفه‌ای
+حفظ ارتباط با دوستان و آشنایان
+مدیریت شبکه‌سازی (Networking)
+سیستم‌های Relationship Intelligence
+توسعه آینده
+ایده‌هایی برای توسعه پروژه:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+اضافه کردن Authentication
+اتصال به تقویم
+یادآوری خودکار Follow-up
+تحلیل پیشرفته روابط
+داشبورد تحلیلی
+پشتیبانی از چند کاربر
+مشارکت در پروژه
+برای مشارکت در پروژه:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Fork کنید
+یک Branch جدید بسازید
+تغییرات خود را Commit کنید
+Pull Request ارسال کنید
+مجوز (License)
+این پروژه تحت مجوز MIT منتشر شده است.
 
-## Deploy on Vercel
+نویسنده
+Bahram
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+نکته
+این پروژه یک نمونه از ترکیب CRM و هوش مصنوعی برای مدیریت روابط انسانی است و می‌تواند به عنوان پایه‌ای برای توسعه سیستم‌های پیشرفته‌تر استفاده شود.
